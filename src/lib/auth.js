@@ -8,7 +8,7 @@ const db = client.db();
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
-    autoSignIn: false,
+    
   },
   trustedOrigins: [
     "http://localhost:3000",
