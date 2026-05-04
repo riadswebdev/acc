@@ -5,15 +5,18 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 const client = new MongoClient(process.env.MONGO_DB_URI);
 const db = client.db();
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+const vercelOrigin =
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
+const trustedOrigins = ["http://localhost:3000", appUrl, vercelOrigin].filter(
+  Boolean,
+);
+
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
-    
   },
-  trustedOrigins: [
-    "http://localhost:3000",
-    "https://books-borrowing-platform-assignment.vercel.app",
-  ],
+  trustedOrigins,
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
