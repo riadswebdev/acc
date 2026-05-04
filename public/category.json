@@ -1,0 +1,7 @@
+[
+  { "id": 1, "category": "Mystery" },
+  { "id": 2, "category": "Programming" },
+  { "id": 3, "category": "Science" },
+  { "id": 7, "category": "History" },
+  { "id": 12, "category": "Technology" }
+]
